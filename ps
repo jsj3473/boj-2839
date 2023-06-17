@@ -1,0 +1,32 @@
+N = int(input())
+
+def moveSugar(input):
+
+    fiveKgBongji = input//5 
+
+    while True:
+
+        remainExcludeFiveBongji = input - fiveKgBongji * 5
+        threeKgBongji = remainExcludeFiveBongji // 3
+        if (fiveKgBongji == 0) and ((remainExcludeFiveBongji % 3) != 0):
+            return -1
+        
+        if (remainExcludeFiveBongji % 3) != 0:
+            fiveKgBongji-=1
+        else:
+            return fiveKgBongji + threeKgBongji
+
+
+
+print(moveSugar(N))
+
+문제 해결을 위해 일차 방정식 두개를 만들었다.
+3x + 5y = N
+x + y = k 
+(x,y는 음이 아닌 정수)
+k값이 최소가 되는 두 교점을 찾으면된다.
+교점들은 여러 개 일수 있다.
+그 교점들중 y값이 최대인 k값이 답이다.
+
+결과값이 -1이 되는 코드의 위치가 헷갈렸다.
+IF-ELSE문 아래에 두면 틀린 답이 도출된다.
